@@ -188,7 +188,7 @@ class AuthorizeController implements AuthorizeControllerInterface
         if (false !== strpos($response_type, ' ')) {
             $types = explode(' ', $response_type);
             sort($types);
-            $response_type = implode(' ', $types);
+            $response_type = ltrim(implode(' ', $types));
         }
 
         $state = $request->query('state');
